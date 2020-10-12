@@ -1,0 +1,12 @@
+
+<h2 *ngIf="itemList.length==0">empy</h2>
+<div class="myDiv">  
+    <ul class="list-group">   
+        <li class="list-group-item" *ngFor="let item of itemList.reverse()" contentEditable={{itemIsEditable}} >{{item.name}}
+             <button class="input-group-text ml-auto mr-1" style="float: right;" (click)="onClickDelete(item.id)" contentEditable=false>Delete</button> 
+             <button class="input-group-text ml-auto mr-1" style="float: right;" (click)="onClickEdit(item.id)" contentEditable=false>Edit</button> 
+        </li>  
+    </ul>  
+</div>
+<button class="input-group-text" (click)="onClickDeleteAll()">Delete all</button>
+
