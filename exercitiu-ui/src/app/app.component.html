@@ -1,26 +1,27 @@
 
+
 <div class="container">
     <div class="form-group">  
-        <h1 class="text-center text-primary">To Do List</h1>   
+        <h1 class="text-center text-primary">To Do List</h1>  
+        <br>
+        <div class="row">
+          <div class="col-xs-12 col-12 col-md-4 form-group">
+            <input
+              [(ngModel)]="dayy"
+              placeholder="Datepicker"
+              class="form-control"
+              [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }"
+              #dp="bsDatepicker"
+              (bsValueChange)="onValueChange($event)"
+              bsDatepicker>
+          </div>
+          <div class="col-xs-12 col-12 col-md-3 form-group">
+            <button class="btn btn-success" (click)="dp.toggle()" [attr.aria-expanded]="dp.isOpen" type="button">Date Picker</button>
+          </div>
+        </div>
         <div> 
             <todo-input (addItem)="onCreateItem($event)" [day]="date"></todo-input>
         </div>
     </div> 
-    <div class="row">
-        <div class="col-xs-12 col-12 col-md-4 form-group">
-          <input
-            [(ngModel)]="dayy"
-            placeholder="Datepicker"
-            class="form-control"
-            [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }"
-            #dp="bsDatepicker"
-            (bsValueChange)="onValueChange($event)"
-            bsDatepicker>
-        </div>
-        <div class="col-xs-12 col-12 col-md-3 form-group">
-          <button class="btn btn-success" (click)="dp.toggle()" [attr.aria-expanded]="dp.isOpen" type="button">Date Picker</button>
-        </div>
-      </div>
-      <br>
     <todo-list [itemList]="items" (deleteItem)="onDeleteItem($event)" (editItem)="onEditItem($event)" (deleteAll)="onDeleteItems()"></todo-list> <!-- use the deleteItem output (deleteItem)="onDeleteItem($event)" -->
 </div>
