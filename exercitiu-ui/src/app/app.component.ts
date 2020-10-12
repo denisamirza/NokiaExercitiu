@@ -12,13 +12,11 @@ import { TodoService } from './todo.service';
 export class AppComponent implements OnInit {
   public title: string = 'exerciutiuAC';
   public items: any = []; // aici tinem lista de items care vor fi afisate in todo list
-  dayy: Date;
   date: string;
 
   public constructor(private todoService: TodoService) {
     // am injectat TodoService
     // nimic altceva de facut in constructor
-    this.dayy = new Date();
   }
 
   public ngOnInit(): void {
@@ -29,9 +27,8 @@ export class AppComponent implements OnInit {
   }
 
   public onValueChange(value: Date): void {
-    this.dayy = value;
-    this.date = this.dayy.getFullYear()+"."+this.dayy.getMonth()+"."+ this.dayy.getDate();
-    console.log("date:    "+this.date);
+    this.date = value.getFullYear()+"."+value.getMonth()+"."+ value.getDate();
+    console.log("date: "+this.date);
     this.ngOnInit();
   }
   

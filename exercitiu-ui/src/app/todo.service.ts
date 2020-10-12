@@ -36,7 +36,7 @@ export class TodoService {
 
    public editItem(todo: TodoListComponent): Observable<any> {
      let something: String = todo.itemName;
-     console.log("yayy"+something);
+     console.log("here: "+something);
      return this.http.patch(this.BASE_API_URL + "todo/" + todo.itemId , {"name" : something});
    }
 }
