@@ -19,7 +19,7 @@
           </div>
         </div>
         <div> 
-            <todo-input (addItem)="onCreateItem($event)" [day]="date"></todo-input>
+            <todo-input (addItem)="onCreateItem($event)" [date]="date"></todo-input>
         </div>
     </div> 
     <todo-list [itemList]="items" (deleteItem)="onDeleteItem($event)" (editItem)="onEditItem($event)" (deleteAll)="onDeleteItems()"></todo-list> <!-- use the deleteItem output (deleteItem)="onDeleteItem($event)" -->

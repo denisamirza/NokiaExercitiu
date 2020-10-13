@@ -27,16 +27,18 @@ export class AppComponent implements OnInit {
   }
 
   public onValueChange(value: Date): void {
-    this.date = value.getFullYear()+"."+value.getMonth()+"."+ value.getDate();
+    var year = value.getFullYear();
+    var month = value.getMonth()+1;
+    var day = value.getDate();
+    this.date = year +"-"+month+"-"+ day;
     console.log("date: "+this.date);
     this.ngOnInit();
   }
   
   public onCreateItem(todo: TodoInputComponent): void {
     this.todoService.createItem(todo).subscribe((response: any) => {
-      console.log("input"+todo.inputText);
       this.items.push({name: todo.inputText, id: response.id}); // cand requestul a fost facut cu succes si am primit raspunsul, push-uim itemul in lista impreuna cu id-ul din raspuns
-                                                             // o alta varianta ar fi sa facem refresh la toata lista cu getItemList(). 
+        todo.inputText = "";                                     // o alta varianta ar fi sa facem refresh la toata lista cu getItemList(). 
     });
   }
 

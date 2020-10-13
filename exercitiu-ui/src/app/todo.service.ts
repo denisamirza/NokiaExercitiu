@@ -20,8 +20,7 @@ export class TodoService {
   // request pentru crearea de todo item intr-o anumita data
   public createItem(todo: TodoInputComponent): Observable<any> {
     let name: string=todo.inputText;
-    let date: string=todo.day;
-    console.log(name+date);
+    let date: string=todo.date;
     return this.http.post(this.BASE_API_URL + "todo/" , { "name": name, "date": date});
   }
 
