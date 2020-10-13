@@ -56,7 +56,11 @@ export class AppComponent implements OnInit {
 
    public onEditItem(item: TodoListComponent) {
     this.todoService.editItem(item).subscribe(() => {
-      
+      for(var i =0; i < this.items.length; i++){    
+        if(this.items[i].id == item.itemId){
+          this.items[i].name = item.itemName;
+        }
+      }     
     });
   }
 }
